@@ -6,30 +6,28 @@
 
 
 class Solution:
-  def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-    p1 = ''
-    p2 = ''
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        p1 = ''
+        p2 = ''
 
-    while l1:
-      p1+=str(l1.val)
-      l1=l1.next
+        while l1:
+            p1 += str(l1.val)
+            l1 = l1.next
 
-    while l2:
-      p2+=str(l2.val)
-      l2=l2.next
+        while l2:
+            p2 += str(l2.val)
+            l2 = l2.next
 
-    p3 = int(p1[::-1])+int(p2[::-1])
-    p3 = str(p3)
-    p = ListNode(int(p3[-1]))
-    res = p
+        p3 = int(p1[::-1])+int(p2[::-1])
+        p3 = str(p3)
+        p = ListNode(int(p3[-1]))
+        res = p
 
-    for i in range(len(p3)-2,-1,-1):
-      p.next = ListNode(int(p3[i]))
-      p = p.next
+        for i in range(len(p3)-2, -1, -1):
+            p.next = ListNode(int(p3[i]))
+            p = p.next
 
-    return res
-
-
+        return res
 
 
 """

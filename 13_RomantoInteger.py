@@ -1,22 +1,21 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
-      roman_dict = {
-        "I":1,
-        "V":5,
-        "X":10,
-        "L":50,
-        "C":100,
-        "D":500,
-        "M":1000,
-      }
-      roman_order = list(roman_dict.keys())
-      converted = [roman_dict[char] for char in s]
-      indexed = [roman_order.index(char) for char in s]
-      for i in range(len(indexed)-1):
-        if indexed[i] < indexed[i+1]:
-          converted[i] = converted[i] * -1
-      return sum(converted)
-
+        roman_dict = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+        }
+        roman_order = list(roman_dict.keys())
+        converted = [roman_dict[char] for char in s]
+        indexed = [roman_order.index(char) for char in s]
+        for i in range(len(indexed)-1):
+            if indexed[i] < indexed[i+1]:
+                converted[i] = converted[i] * -1
+        return sum(converted)
 
 
 check = Solution()
