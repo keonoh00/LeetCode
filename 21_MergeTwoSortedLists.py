@@ -21,5 +21,6 @@ class Solution:
         else:
             result.next = l2
         return front.next
-        # T.C: O(min(M, N))
-        # S.C: O(1)
+
+# T.C: O(min(M, N))
+# S.C: O(1)
