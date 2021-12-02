@@ -1,5 +1,24 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        memory = dict()
+        current_chars = str()
+        if len(s) < 2:
+            return len(s)
+        for i in range(len(s)):
+            if s[i] not in current_chars:
+                current_chars += s[i]
+            else:
+                memory[current_chars] = len(current_chars)
+                current_chars = current_chars[current_chars.index(
+                    s[i])+1:] + s[i]
+        memory[current_chars] = len(current_chars)
+        return max(memory.values())
+
+# T.C : O(n)
+
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
         unique = set(s)
         if len(unique) == len(s):
             return len(s)
@@ -10,6 +29,7 @@ class Solution:
                 if len(substring) == len(set(substring)):
                     return len(substring)
         return 0
+
 # T.C : O(m*n)
 
 
@@ -21,6 +41,9 @@ print(check.lengthOfLongestSubstring(""))
 print(check.lengthOfLongestSubstring(" "))
 print(check.lengthOfLongestSubstring("au"))
 print(check.lengthOfLongestSubstring("aab"))
+print(check.lengthOfLongestSubstring("dvdf"))
+print(check.lengthOfLongestSubstring("aabaab!bb"))
+
 
 """
 Example 1:
