@@ -1,21 +1,37 @@
-# Conventional Approach
+# Binary Search Approach
 class Solution:
     def mySqrt(self, x: int) -> int:
-        if x < 1:
-            return 0
+        if x == 1:
+            return 1
         i = 0
-        power2 = 1
-        while power2 < x:
-            next = (i+1) * (i+1)
-            if x < next:
-                return i
-            power2 = next
-            i += 1
-        return i
+        j = x
+        while i <= j:
+            half = (i+j)//2
+            if half*half <= x < (half+1)*(+1):
+                return half
+            elif half*half > x:
+                j = half
+            else:
+                i = half
 
+
+# Conventional Approach
+# class Solution:
+#     def mySqrt(self, x: int) -> int:
+#         if x < 1:
+#             return 0
+#         i = 0
+#         power2 = 1
+#         while power2 < x:
+#             next = (i+1) * (i+1)
+#             if x < next:
+#                 return i
+#             power2 = next
+#             i += 1
+#         return i
 
 check = Solution()
-print(check.mySqrt(4))
+print(check.mySqrt(7))
 
 """
 Example 1:
