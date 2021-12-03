@@ -1,14 +1,34 @@
+# Kadane's Algorithm
 class Solution:
-    def lengthOfLastWord(self, s: str) -> int:
-        count = 0
-        for x in range(len(s)-1, 0, -1):
-            if s[x] != " " and s[x-1] == " ":
-                count += 1
-                return count
-            elif s[x] != " ":
-                count += 1
-            else:
-                pass
-        if s[0] != " ":
-            count += 1
-        return count
+    def maxSubArray(self, nums: list[int]) -> int:
+        for i in range(1, len(nums)):
+            nums[i] = max(nums[i], nums[i]+nums[i-1])
+        return max(nums)
+
+# T.C : O(n)
+
+
+check = Solution()
+print(check.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+print(check.maxSubArray([1]))
+print(check.maxSubArray([5, 4, -1, 7, 8]))
+
+"""
+Example 1:
+
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
+
+
+Example 2:
+
+Input: nums = [1]
+Output: 1
+
+
+Example 3:
+
+Input: nums = [5,4,-1,7,8]
+Output: 23
+"""
