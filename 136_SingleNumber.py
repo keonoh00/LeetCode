@@ -6,7 +6,7 @@ class Solution:
     def singleNumber(self, nums: list[int]) -> int:
         temp = 0
         for i in range(len(nums)):
-            # Use of XOR Operator
+            # Use of Bitwise XOR Operator
             temp ^= nums[i]
         return temp
 
