@@ -19,8 +19,6 @@ class Solution:
             else:
                 carry = 0
             result += str(current_sum)
-            print(
-                f"i:{i},   a:{a[i]},   b:{b[i]},   current_sum:{current_sum},  carry:{carry},   result:{result}")
         if carry != 0:
             result += str(1)
         return result[::-1]
