@@ -12,6 +12,8 @@ class Solution:
                 if substring == substring[::-1]:
                     return substring
 
+# T.C : O(n^2)
+
 
 check = Solution()
 print(check.longestPalindrome("babad"))
